@@ -1,10 +1,7 @@
+*.pyc
 *.swp
-<<<<<<< HEAD
-node_modules/
-=======
 *.livereload
 doc
 test
 src
 utils
->>>>>>> add: ignore
