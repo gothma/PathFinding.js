@@ -27,7 +27,7 @@ function AStarFinder(opt) {
  * @return {Array.<[number, number]>} The path, including both start and
  *     end positions.
  */
-AStarFinder.prototype.findPath = function(startX, startY, endX, endY, grid) {
+AStarFinder.prototype.findPath = function(startX, startY, starts, endX, endY, grid) {
     var openList = new Heap(function(nodeA, nodeB) {
             return nodeA.f - nodeB.f;
         }),
@@ -48,11 +48,14 @@ AStarFinder.prototype.findPath = function(startX, startY, endX, endY, grid) {
     openList.push(startNode);
     startNode.opened = true;
 
-    start2 = grid.getNodeAt(0, 0);
-    start2.walkable = true;
-    start2.opened = true;
-
-    openList.push(start2);
+    for (index = 0; index < starts.length; ++index) {
+        console.log(index);
+        start2 = grid.getNodeAt(starts[index][0], starts[index][1]);
+        start2.g = 0;
+        start2.f = 0;
+        start2.opened = true;
+        openList.push(start2);
+    }
 
     // while the open list is not empty
     while (!openList.empty()) {

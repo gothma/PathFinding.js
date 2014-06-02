@@ -93,6 +93,7 @@ var Controller = StateMachine.create({
 $.extend(Controller, {
     gridSize: [64, 36], // number of nodes horizontally and vertically
     operationsPerSecond: 300,
+    starts: [],
 
     /**
      * Asynchronous transition from `none` state to `ready` state.
@@ -136,7 +137,7 @@ $.extend(Controller, {
         timeStart = window.performance ? performance.now() : Date.now();
         grid = this.grid.clone();
         this.path = finder.findPath(
-            this.startX, this.startY, this.endX, this.endY, grid
+            this.startX, this.startY, this.starts, this.endX, this.endY, grid
         );
         this.operationCount = this.operations.length;
         timeEnd = window.performance ? performance.now() : Date.now();
@@ -484,6 +485,8 @@ $.extend(Controller, {
     setStartPos: function(gridX, gridY) {
         this.startX = gridX;
         this.startY = gridY;
+
+        this.starts.push([gridX, gridY]);
         View.setStartPos(gridX, gridY);
     },
     setEndPos: function(gridX, gridY) {

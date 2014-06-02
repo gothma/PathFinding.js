@@ -117,7 +117,7 @@ var View = {
     },
     setStartPos: function(gridX, gridY) {
         var coord = this.toPageCoordinate(gridX, gridY);
-        if (!this.startNode) {
+        if (true) {
             this.startNode = this.paper.rect(
                 coord[0],
                 coord[1],
