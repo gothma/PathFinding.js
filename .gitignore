@@ -1,7 +1,14 @@
 *.pyc
 *.swp
+<<<<<<< HEAD
 *.livereload
+=======
+>>>>>>> 7a83a03fcc5ef5056401f701f25cd7800c2ed11f
 doc
 test
 src
 utils
+<<<<<<< HEAD
+=======
+node_modules/
+>>>>>>> 7a83a03fcc5ef5056401f701f25cd7800c2ed11f
