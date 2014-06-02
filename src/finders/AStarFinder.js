@@ -48,6 +48,12 @@ AStarFinder.prototype.findPath = function(startX, startY, endX, endY, grid) {
     openList.push(startNode);
     startNode.opened = true;
 
+    start2 = grid.getNodeAt(0, 0);
+    start2.walkable = true;
+    start2.opened = true;
+
+    openList.push(start2);
+
     // while the open list is not empty
     while (!openList.empty()) {
         // pop the position of node which has the minimum `f` value.
